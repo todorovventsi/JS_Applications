@@ -11,6 +11,7 @@ function attachEvents() {
 function refresh() {
     getMessages().then((data) => {
         let chatFieldRef = document.getElementById("messages");
+        chatFieldRef.textContent = "";
         Object.values(data)
             .map((msg) => `${msg.author}: ${msg.content}\n`)
             .forEach((msg) => (chatFieldRef.textContent += msg));
