@@ -10,6 +10,13 @@ export async function getAllTopics() {
     return result;
 }
 
+export async function getTopic(id) {
+    const response = await fetch(`${postsEP}/${id}`);
+    const result = await response.json();
+
+    return result;
+}
+
 export async function createTopic(e) {
     // TODO - validate input
     e.preventDefault();

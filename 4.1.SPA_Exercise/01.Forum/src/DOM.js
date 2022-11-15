@@ -1,3 +1,5 @@
+import { showTopicView } from "./topic.js";
+
 export function loadTopics(data, div, view) {
     // TODO Generate and load topic DIVs
     // const topicListDivRef = document.querySelector("#topic-list");
@@ -10,6 +12,10 @@ export function loadTopics(data, div, view) {
     div.appendChild(topicListFragment);
 }
 
+export function loadTopic(data) {
+    console.log(data);
+}
+
 function generateHomeViewTopicDiv(topicObj) {
     let { topicName, username, postText, created } = topicObj;
     let id = topicObj._id;
@@ -17,13 +23,14 @@ function generateHomeViewTopicDiv(topicObj) {
     // To be done with creating DOM Elements indead of using innerHTML!!!
     let topicDiv = document.createElement("div");
     topicDiv.classList.add("topic-title");
-    topicDiv.setAttribute("tipic-id", id);
+    // topicDiv.setAttribute("topic_id", id);
+    topicDiv.addEventListener("click", showTopicView);
     topicDiv.innerHTML = `<div class="topic-container">
     <!--TODO - to be generated-->
     <div class="topic-name-wrapper">
         <div class="topic-name">
             <a href="#" class="normal">
-                <h2>${topicName}</h2>
+                <h2 topic_id=${id}>${topicName}</h2>
             </a>
             <div class="columns">
                 <div>
