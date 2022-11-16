@@ -10,3 +10,8 @@ export async function showHomeView() {
     document.querySelector("#topic-comments-view").style.display = "none";
     document.querySelector("#home-view").style.display = "block";
 }
+
+export function redirectHome(e) {
+    e.preventDefault();
+    showHomeView();
+}
